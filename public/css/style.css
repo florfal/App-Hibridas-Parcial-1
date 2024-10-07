@@ -1,17 +1,17 @@
-header{
-    height: 20vh;
+header {
+    height: 30vh;
     flex-direction: column;
 }
 
-main{
+main {
     min-height: 80vh;
 }
 
-footer{
+footer {
     height: 10vh;
 }
 
-header, footer{
+header, footer {
     display: flex;
     justify-content: center;
     align-items: center;

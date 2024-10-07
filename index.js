@@ -1,26 +1,16 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const routerAPI = require('./routes');
+const db = require('./config/dataBase.js');
 require('dotenv').config();
 
 // accedemos a la variable de Entorno
 const port = process.env.PORT;
 
-// Conectamos a la db
-mongoose.connect('mongodb://127.0.0.1:27017/app');
-const db = mongoose.connection;
-
-db.on('error', () => console.error('Error'));
-db.once('open', ()=>{
-    console.log('Conexión correcta');
-})
-
 const app = express();
 // Ruta Raíz
 app.use( express.json());
-
-//Definimos la carpeta para servir archivos estaticos
-app.use(express.static('public'));
+// Definimos la carpeta para servir archivos estaticos
+app.use(  express.static('public') );
 
 app.use(  (req, res, next) => {
     console.log('Soy el middleware');
